@@ -5,6 +5,7 @@ import Music from './pages/Music'
 import Shop from './pages/Shop'
 import LetsTalk from './pages/LetsTalk'
 import { Route, Routes } from 'react-router-dom'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='cart' element={<LetsTalk/>}/>
       </Routes>
     </main>
+    <Footer/>
    </div>
   );
 }
