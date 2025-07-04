@@ -1,37 +1,41 @@
 .navbar {
     position: sticky;
-     top: 0;
-  z-index: 1000;
-  background-color: #000000;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    top: 0;
+    z-index: 1000;
+    background-color: #000000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .navbar-links {
-  display: flex;
-  gap: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 }
 
 .nav-link {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    color: white;
+    text-decoration: none;
+    position: relative;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
+
 .nav-link::after {
     content: '';
     position: absolute;
@@ -80,20 +84,69 @@
     font-size: 0.8rem;
     font-weight: bold;
 }
+
+/* Mobile menu button - hidden by default */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-  }
+    .navbar {
+        padding: 1rem;
+        position: relative;
+    }
 
-  .navbar-brand {
-    font-size: 1.2rem;
-  }
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
 
-  .navbar-links {
-    gap: 1rem;
-  }
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+    }
 
-  .nav-link {
-    padding: 0.5rem;
-  }
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #000000;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.3s ease;
+        padding-top: 60px;
+    }
+
+    .navbar-links.active {
+        right: 0;
+    }
+
+    .nav-link {
+        padding: 1rem;
+        width: 80%;
+        text-align: center;
+    }
+
+    .nav-cart {
+        margin-left: 0;
+        padding: 1rem;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .navbar-links {
+        gap: 1.5rem;
+    }
 }
